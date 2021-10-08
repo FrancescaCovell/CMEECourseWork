@@ -8,6 +8,6 @@
 #date: Oct 2021
 
 echo "Creating a comma delimited version of $1 ..."
-cat $1 | tr -s "\t" "," >> $1.csv
+cat $1 | tr -s "\t" "," >> $1.csv # tack file translate all spaces to commas put in file name 
 echo "Done!"
 exit
