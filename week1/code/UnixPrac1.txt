@@ -1,0 +1,66 @@
+
+# CHANGE TO .TXT WHEN FINISHED !!!!!! 
+
+#!/bin/bash
+#Author: francescacovell.login@imperial.ac.uk
+#Script: UnixPrac1.txt
+#Description: improving code
+#
+#
+#Date:6 Oct 2021
+
+#Bash Command Challenge
+#find . -type f -exec ls -s {} \; | sort -n | head -10
+# find = find 
+# . = in this directory 
+# -type f = things with the type file 
+# -exec = execute on all files
+# ls -s = list in order of memory size
+# {} = placeholder for find to insert name
+# \ = lets find see the ;
+# ; = tells find where to end
+# | = redirects, so the output of find acts as input for sort and head
+# sort-n = sorts numericly (in this case by file size)
+# head -10 = print the first 10 line (can change number to give different outputs)
+
+
+#1
+#NOT WORKING NOW
+
+#Count how many lines there are in each file
+echo "the length of each file are as follows $(wc -l E.coli.fasta 407228412.fasta 407228326.fasta)"
+
+# save fasta files to data and call from data when running in code
+# need to remove total and swap length and file name
+
+#2
+#Print everything starting from the second line for the E. coli genome
+
+awk 'NR > 2 { print }' E.coli.fasta
+sed '1d' E.coli.fasta
+#both above work
+#works needs understanding and output conformation
+
+
+#3
+#Count the squence length
+
+echo "The total length of the E. coli genome is $(<E.coli.fasta sed '1d' E.coli.fasta | wc -c)" 
+# <$1 removes suffix for echo
+# sed '1d' starts from line 2
+# wc -c count number of characters 
+# possibly counting new lines as characters
+
+#4
+#Count the matches of a particular sequence, “ATGC” in the genome of E. coli
+
+echo "There are$(grep -EIho 'ATGC' E.coli.fasta| sort | uniq -c) sequences in the Ecoli gemone"
+#-E, interpers patters as ectended regular ecpressions
+#-I, process a binary file as if it did not contain matching data 
+#-h, supresses the prefix of the file name on output
+#-o, only match print only the matches
+
+#5
+#Compute the AT/GC ratio
+
+Var1=$(grep -EIho 'A|T' E.coli.fasta| sort | uniq -c|awk '{s+=$1} END {print s}') ; Var2=$(grep -EIho 'C|G' E.coli.fasta| sort | uniq -c|awk '{s+=$1} END {print s}'); echo "scale=1; $Var1 / $Var2" | bc

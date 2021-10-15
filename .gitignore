@@ -1,2 +1,8 @@
 *~ 
 *.tmp
+
+*.pdf
+*.aux
+*.log
+*.blg
+*.bbl
