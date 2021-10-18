@@ -25,11 +25,11 @@
 
 
 #1
-#NOT WORKING NOW
 
 #Count how many lines there are in each file
 echo "the length of each file are as follows $(wc -l E.coli.fasta 407228412.fasta 407228326.fasta)"
 
+# to improve
 # save fasta files to data and call from data when running in code
 # need to remove total and swap length and file name
 
@@ -38,7 +38,9 @@ echo "the length of each file are as follows $(wc -l E.coli.fasta 407228412.fast
 
 awk 'NR > 2 { print }' E.coli.fasta
 sed '1d' E.coli.fasta
+
 #both above work
+#to improve
 #works needs understanding and output conformation
 
 
@@ -46,6 +48,7 @@ sed '1d' E.coli.fasta
 #Count the squence length
 
 echo "The total length of the E. coli genome is $(<E.coli.fasta sed '1d' E.coli.fasta | wc -c)" 
+
 # <$1 removes suffix for echo
 # sed '1d' starts from line 2
 # wc -c count number of characters 
@@ -55,6 +58,7 @@ echo "The total length of the E. coli genome is $(<E.coli.fasta sed '1d' E.coli.
 #Count the matches of a particular sequence, “ATGC” in the genome of E. coli
 
 echo "There are$(grep -EIho 'ATGC' E.coli.fasta| sort | uniq -c) sequences in the Ecoli gemone"
+
 #-E, interpers patters as ectended regular ecpressions
 #-I, process a binary file as if it did not contain matching data 
 #-h, supresses the prefix of the file name on output
