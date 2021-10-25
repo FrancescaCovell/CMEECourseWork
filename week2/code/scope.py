@@ -1,3 +1,23 @@
+#!/usr/bin/env python3
+
+"""Redefining a_functionto explore how global and local variables,
+ interact with fuction"""
+
+#__appname__ = '[application name here]'
+__author__ = 'Francesca Covell(francesca.covell@imperial.ac.uk)'
+__version__ = '0.0.1'
+#__license__ = "License for this code/program"
+
+## imports ##
+
+## constants ##
+
+
+## functions ##
+#a_function
+
+
+
 # variable scope
 
 # first example 

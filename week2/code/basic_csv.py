@@ -1,4 +1,19 @@
+#!/usr/bin/env python3
+
+"""open s=csv file and writes new file"""
+
+#__appname__ = '[application name here]'
+__author__ = 'Francesca Covell(francesca.covell@imperial.ac.uk)'
+__version__ = '0.0.1'
+#__license__ = "License for this code/program"
+
+## imports ##
 import csv
+
+## constants ##
+
+
+## functions ##
 
 # Reads file containing: species, ifraorder, family, distibution, body mass male
 
@@ -10,6 +25,7 @@ with open('../data/testcsv.csv','r') as f:
         temp.append(tuple(row))
         print(row)
         print("The species is", row[0])
+
 
 
 # writes file cintaining only species name and body mass

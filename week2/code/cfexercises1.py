@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+
+"""ecploring different conditionals"""
+
+#__appname__ = '[application name here]'
+__author__ = 'Francesca Covell(francesca.covell@imperial.ac.uk)'
+__version__ = '0.0.1'
+#__license__ = "License for this code/program"
+
+## imports ##
+
+## constants ##
+
+
+## functions ##
 # What does each of foo_x do?
 
 def foo_1(x):

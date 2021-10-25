@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+
+""""writing list comprehension and loops for rainfall"""
+#dacstrins are considered apart of the running code (normal comments are
+#stripped), Hence you can access your docstrings iat run time.
+__author__ = 'Francesca Covell (francesca.covell@imperial.ac.uk)' #change to full email
+__version__ = '0.0.1'
+## imports ##
+
+## constants ##
+
+
+## functions ##
 # Average UK Rainfall (mm) for 1910 by month
 # http://www.metoffice.gov.uk/climate/uk/datasets
 rainfall = (('JAN',111.4),

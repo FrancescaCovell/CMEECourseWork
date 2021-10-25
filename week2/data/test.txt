@@ -1,3 +1,6 @@
-CAATTCGGAT
-ATCGCCGGATTACGGG
-Best score:5
+Fist Line
+Second Line
+
+Third Line
+
+Fourth Line

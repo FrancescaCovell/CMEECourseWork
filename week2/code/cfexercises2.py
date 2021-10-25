@@ -9,6 +9,21 @@ for j in range(15):
         print('hello')
 # going through 0-14 if modulo 5 or 4 equals 3 print hello  
 
+#!/usr/bin/env python3
+
+"""examples of combining loops and conditionals"""
+
+#__appname__ = '[application name here]'
+__author__ = 'Francesca Covell(francesca.covell@imperial.ac.uk)'
+__version__ = '0.0.1'
+#__license__ = "License for this code/program"
+
+## imports ##
+
+## constants ##
+
+
+## functions ##
 z = 0 
 while z != 15:
     print('hello')

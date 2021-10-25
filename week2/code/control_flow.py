@@ -3,7 +3,7 @@
 """"Some functions exeplifying the use of control statments"""
 #dacstrins are considered apart of the running code (normal comments are
 #stripped), Hence you can access your docstrings iat run time.
-__author__ = 'Francesca Covell (fc420@ic.ac.uk)' #change to full email
+__author__ = 'Francesca Covell (francesca.covell@imperial.ac.uk)' #change to full email
 __version__ = '0.0.1'
 
 import sys

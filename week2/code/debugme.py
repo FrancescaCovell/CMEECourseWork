@@ -1,4 +1,16 @@
+#!/usr/bin/env python3
 
+""""explores zero division error"""
+
+__author__ = 'Francesca Covell (francesca.covell@imperial.ac.uk)' #change to full email
+__version__ = '0.0.1'
+
+## imports ##
+
+## constants ##
+
+
+## functions ##
 def buggyfunc(x):
     y = x
     for i in range(x):

@@ -70,6 +70,22 @@ for i in range(l1): # Note that you just take the last alignment with the highes
         my_best_score = z 
 the_best = str(my_best_score)
 
+#for shortest len initialise dictionary 
+#if z => my best score put into dictionary
+#my best score = dictionary 
+#save to results
+
+test = {}
+for i in range(l1):
+    test[i] = None
+    z = calculate_score(s1, s2, l1, l2, i)
+    if z >= my_best_score:
+        my_best_align = "." * i + s2 
+        pickle.dump(test, my_best_score)
+test
+
+
+
 with open('../data/test.txt', 'w') as f:
     f.write(my_best_align)
     f.write('\n')

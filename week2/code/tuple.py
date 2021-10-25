@@ -1,3 +1,16 @@
+#!/usr/bin/env python3
+
+""""writing nice output for birds"""
+#dacstrins are considered apart of the running code (normal comments are
+#stripped), Hence you can access your docstrings iat run time.
+__author__ = 'Francesca Covell (francesca.covell@imperial.ac.uk)' #change to full email
+__version__ = '0.0.1'
+## imports ##
+
+## constants ##
+
+
+## functions ##
 # Birds is a tuple of tuples of length three: latin name, common name, mass.
 # write a (short) script to print these on a separate line or output block by species 
 # 
