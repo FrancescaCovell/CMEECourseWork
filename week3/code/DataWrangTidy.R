@@ -1,10 +1,13 @@
-################################################################
+###############################################################
 ################## Wrangling the Pound Hill Dataset ############
 ################################################################
-
+rm(list=ls())
+require(tidyverse)
+getwd()
+setwd("/home/frcovell/CMEECourseWork/week3/code")
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
-MyData <- as.matrix(read.csv("../data/PoundHillData.csv", header = FALSE))
+MyData<- as.matrix(read.csv("../data/PoundHillData.csv", header = FALSE))
 
 # header = true because we do have metadata headers
 MyMetaData <- read.csv("../data/PoundHillMetaData.csv", header = TRUE, sep = ";")
@@ -16,11 +19,17 @@ str(MyData)
 fix(MyData) #you can also do this
 fix(MyMetaData)
 
+
 ############# Transpose ###############
 # To get those species into columns and treatments into rows 
 MyData <- t(MyData) 
 head(MyData)
 dim(MyData)
+
+MyData<-as.data.frame(MyData)
+test <- pivot_longer(MyData, cols = 5:45, names_to = "Species" , values_to = "species")  
+# doesnt look right 
+
 
 ############# Replace species absences with zeros ###############
 MyData[MyData == ""] = 0
@@ -47,18 +56,3 @@ str(MyWrangledData)
 head(MyWrangledData)
 dim(MyWrangledData)
 
-############# Exploring the data (extend the script below)  ###############
-
-MyMetaData
-MyMetaData[MyMetaData == ""] = 0
-
-MyData <-t(MyData)
-head(MyData)
-colnames(MyData)
-
-TempData <- as.data.frame(MyData[-1,], stringsAsFactors = F)
-head(TempData)
-colnames(TempData) <- MyData[1,]
-head(TempData)
-rownames(TempData) <- NULL
-head(TempData)
