@@ -35,12 +35,12 @@ stochrickvect <- function(p0 = runif(1000, .5, 1.5),
   N <- matrix(NA, numyears, length(p0))  #initialize empty matrix
   
   N[1, ] <- p0
-  
+  length(N)
   #for (pop in 1:length(p0)) { #loop through the populations
     
     for (yr in 2:numyears){ #for each pop, loop through the years
       
-      N[yr, ] <- N[yr-1, ] * exp(r * (1 - N[yr - 1,] / K) + rnorm(1, 0, sigma)) 
+      N[yr, ] <- N[yr-1, ] * exp(r * (1 - N[yr - 1,] / K) + rnorm(1000, 0, sigma)) 
       # add one fluctuation from normal distribution
       
     }

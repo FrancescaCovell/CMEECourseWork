@@ -23,28 +23,34 @@ fix(MyMetaData)
 ############# Transpose ###############
 # To get those species into columns and treatments into rows 
 MyData <- t(MyData) 
-head(MyData)
-dim(MyData)
+#head(MyData)
+#dim(MyData)
 
+
+#tidy transposed data from MyData <- t(MyData)
 MyData<-as.data.frame(MyData)
-test <- pivot_longer(MyData, cols = 5:45, names_to = "Species" , values_to = "species")  
-# doesnt look right 
+
+colnames(MyData) <- MyData[1,]
+MyData <-MyData[-c(1),]
+MyData <- pivot_longer(MyData, cols = 5:45, names_to = "Species" , values_to = "Count")  
+
 
 
 ############# Replace species absences with zeros ###############
-MyData[MyData == ""] = 0
+#MyData[MyData == ""] = 0
 
 ############# Convert raw matrix to data frame ###############
 
-TempData <- as.data.frame(MyData[-1,],stringsAsFactors = F) #stringsAsFactors = F is important!
-colnames(TempData) <- MyData[1,] # assign column names from original data
+#TempData <- as.data.frame(MyData[-1,],stringsAsFactors = F) #stringsAsFactors = F is important!
+#colnames(TempData) <- MyData[1,] # assign column names from original data
 
 ############# Convert from wide to long format  ###############
-require(reshape2) # load the reshape2 package
+#require(reshape2) # load the reshape2 package
 
-?melt #check out the melt function
+#?melt #check out the melt function
+mutate
 
-MyWrangledData <- melt(TempData, id=c("Cultivation", "Block", "Plot", "Quadrat"), variable.name = "Species", value.name = "Count")
+MyWrangledData <- gather(MyData, "Cultivation", "Block", "Plot", "Quadrat", "Species", "Count")
 
 MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
 MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])

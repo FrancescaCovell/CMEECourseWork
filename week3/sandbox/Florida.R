@@ -44,6 +44,6 @@ qplot(test1000,
 dev.off()
 
 # is observed sig diff to random distibution
-Pvalue <- sum(test1000>test)
+Pvalue <- sum(test1000 >= test)
 Pvalue
 
