@@ -32,7 +32,7 @@ MyData<-as.data.frame(MyData)
 
 colnames(MyData) <- MyData[1,]
 MyData <-MyData[-c(1),]
-MyData <- pivot_longer(MyData, cols = 5:45, names_to = "Species" , values_to = "Count")  
+
 
 
 
@@ -50,13 +50,20 @@ MyData <- pivot_longer(MyData, cols = 5:45, names_to = "Species" , values_to = "
 #?melt #check out the melt function
 mutate
 
-MyWrangledData <- gather(MyData, "Cultivation", "Block", "Plot", "Quadrat", "Species", "Count")
+#MyWrangledData <- gather(MyData, "Cultivation", "Block", "Plot", "Quadrat", "Species", "Count")
+MyWrangledData <-  pivot_longer(MyData, cols = 5:45, names_to = "Species" , values_to = "Count")  
 
-MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
-MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])
-MyWrangledData[, "Plot"] <- as.factor(MyWrangledData[, "Plot"])
-MyWrangledData[, "Quadrat"] <- as.factor(MyWrangledData[, "Quadrat"])
-MyWrangledData[, "Count"] <- as.integer(MyWrangledData[, "Count"])
+MyWrangledData <- MyWrangledData %>% # into MyWrang put MyWrang do following
+  mutate(across(c(Cultivation, Block, Plot, Quadrat), as.factor))
+
+MyWrangledData <- MyWrangledData %>% # into MyWrang put MyWrang do following
+  mutate(across(c(Count), as.integer))
+
+#MyWrangledData[, "Cultivation"] <- as.factor(MyWrangledData[, "Cultivation"])
+#MyWrangledData[, "Block"] <- as.factor(MyWrangledData[, "Block"])
+#MyWrangledData[, "Plot"] <- as.factor(MyWrangledData[, "Plot"])
+#MyWrangledData[, "Quadrat"] <- as.factor(MyWrangledData[, "Quadrat"])
+#MyWrangledData[, "Count"] <- as.integer(MyWrangledData[, "Count"])
 
 str(MyWrangledData)
 head(MyWrangledData)

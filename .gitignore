@@ -6,3 +6,6 @@
 *.log
 *.blg
 *.bbl
+
+
+__pycache__/

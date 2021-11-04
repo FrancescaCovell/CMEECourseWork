@@ -6,6 +6,8 @@ load("../data/GPDDFiltered.RData")
 require(maps)
 
 map()
-map(wrap = c(0,360), fill = TRUE, col = 2) # pacific-centered map of the world
-map(wrap = c(0, 360, NA), fill = TRUE, col = 2) # idem, without Antarctica
-map("state", xlim = range(gpdd$lat), ylim = range(gpdd$long))
+points(x = gpdd$long, y = gpdd$lat, col = "red1")
+
+
+# Data is biased to the North hemisphere specifically west cost North America, the UK and Europe.
+# This would also indicate a bias of climate 

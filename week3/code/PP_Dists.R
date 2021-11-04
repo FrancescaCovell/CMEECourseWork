@@ -14,6 +14,7 @@ dplyr::glimpse(MyDF)
 #subplot distribution Prey mass
 #size ratio of prey mass over predator mass by feeding interaction type
 #Use logarithms of masses (or size ratios)for all three plots.
+MyDF$Prey.mass[which(MyDF$Prey.mass.unit == 'mg')] <- MyDF$Prey.mass[which(MyDF$Prey.mass.unit == 'mg')] / 1000
 
 x <- split(log(MyDF$Predator.mass), f = MyDF$Type.of.feeding.interaction)
 y <- split(log(MyDF$Prey.mass), f = MyDF$Type.of.feeding.interaction)
