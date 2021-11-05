@@ -6,6 +6,6 @@
 *.log
 *.blg
 *.bbl
-
+*.git
 
 __pycache__/

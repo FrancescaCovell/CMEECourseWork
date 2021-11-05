@@ -23,6 +23,6 @@ TreeHeight <- function(degrees, distance){
 
 TreeHeight(37, 40)
 
-test <- read.csv("home/frcovell/CMEECourseWork/week3/data/trees.csv")
+test <- read.csv("home/frcovell/CMEECourseWork/week3/result/trees.csv")
 test
 ls

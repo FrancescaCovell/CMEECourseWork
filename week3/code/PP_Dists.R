@@ -21,7 +21,7 @@ y <- split(log(MyDF$Prey.mass), f = MyDF$Type.of.feeding.interaction)
 length(x)
 
 #subplot for predator
-pdf("../data/Pred_Subplots.pdf", # Open blank pdf page using a relative path
+pdf("../results/Pred_Subplots.pdf", # Open blank pdf page using a relative path
     11.7, 8.3)
 par(mfcol = c(5, 1))
 par(mfg = c(1, 1))
@@ -50,7 +50,7 @@ dev.off()
 #works 
 
 #subplot for prey
-pdf("../data/Prey_Subplots.pdf", # Open blank pdf page using a relative path
+pdf("../results/Prey_Subplots.pdf", # Open blank pdf page using a relative path
     11.7, 8.3)
 par(mfcol = c(5, 1))
 par(mfg = c(1, 1))
@@ -82,7 +82,7 @@ dev.off()
 z <- log(MyDF$Prey.mass / MyDF$Predator.mass)
 z <- split(z, f = MyDF$Type.of.feeding.interaction)
 length(z)
-pdf("../data/SizerRatio_Subplots.pdf", # Open blank pdf page using a relative path
+pdf("../results/SizerRatio_Subplots.pdf", # Open blank pdf page using a relative path
     11.7, 8.3)
 par(mfcol = c(5, 1))
 par(mfg = c(1, 1))
@@ -135,5 +135,6 @@ Type <- rep(c("Pred","Prey","Ratio"), each = 5)
 
 PP_Results <- data.frame(FeedingType,Type,Mean,Median)
 
-write.csv( PP_Results, "../data/ PP_Results.csv")
+write.csv( PP_Results, "../results/ PP_Results.csv")
+
                    
