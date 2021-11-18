@@ -16,7 +16,7 @@ def my_squares(iters):
 
 
 def my_join(iters, string):
-    """"""
+    """joins a string ,"""
     out = ''
     for i in range(iters):
         out += string.join(", ")
@@ -24,7 +24,7 @@ def my_join(iters, string):
 
 
 def run_my_funcs(x,y):
-    """"""
+    """runs above functions"""
     print(x,y)
     my_squares(x)
     my_join(x,y)
