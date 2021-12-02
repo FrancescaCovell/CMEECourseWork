@@ -32,15 +32,17 @@ def main(argv):
     ## Data wrangle and make into df
     df = pd.DataFrame(data)
     df.drop(df[df["Time"] < 0].index, inplace=True)
-    df.drop(df[df["PopBio"] < 0].index, inplace=True) 
+    df.drop(df[df["PopBio"] <= 0].index, inplace=True) 
     df.insert(0,'ID',  df.groupby(['Species','Temp','Medium','Citation']).ngroup())
-    df['ID'] = df['ID'].replace(0, df['ID'].max()+1) 
+    #df['ID'] = df['ID'].replace(0, df['ID'].max()+1) 
     test = df.ID.value_counts() < 5
     test = test[test] 
     df.drop(df.loc[df.ID.isin(test.index)].index, inplace=True) 
     df.drop('ID',1, inplace=True)
     df.insert(0,'ID',  df.groupby(['Species','Temp','Medium','Citation']).ngroup())
     df['ID'] = df['ID'].replace(0, df['ID'].max()+1) 
+    #df['log_PopBio'] = np. log(df['PopBio'])
+    df.insert(4, 'log_PopBio', np. log(df['PopBio']))
     ## Export
     df.to_csv('../data/ModGrowthData.csv')
 
