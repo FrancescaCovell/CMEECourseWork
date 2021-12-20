@@ -397,7 +397,7 @@ spiral <- function(start_position, direction, length)  {
   #call spiral to loop and make following lines with new start parameters until recursion stops
   spiral(start_position = c(new_start[1], new_start[2]), direction = y - (pi/4), length = (z*0.95))
   }
-  return("Because piral is being called within spiral (recursively) is creates an infinite loop. So internal systems forces a stop to stop the function using all the computational resources of the machine")
+  return("Because spiral is being called within spiral (recursively) is creates an infinite loop. So internal systems forces a stop to stop the function using all the computational resources of the machine")
  }
 
 # Question 27
