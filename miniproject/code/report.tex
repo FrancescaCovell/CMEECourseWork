@@ -1,0 +1,154 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[a4paper, total={7in, 10in}]{geometry}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{dpfloat, booktabs}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\usepackage{wrapfig}
+\usepackage{float}
+
+
+
+
+\addbibresource{references.bib}
+\def\bloep{/home/frcovell/CMEECourseWork/MiniProject/result/}
+
+\title{Is Baranyi Best? Comparing Models on Microbial Growth Data}
+\author{Francesca Covell }
+\date{December 2021}
+
+\begin{document}
+	
+	\maketitle
+	
+	\section{Abstract}
+	Understanding microbial growth data allows us to better protect and produce food, protect ecosystems and improve medical research. In the world of ecology there have been a shift away from rejecting null hypothesis to accept the alternative, towards comparing models based on information criteria. Here we assess three models on a large collection as microbial growth data. our findings showed that the cubic polynomial was consistently the best model contradicting other studies.
+	
+	\section{Introduction}
+	
+	Food production and safety, the health sector and ecosystem management can all be influenced by microbial growth. In food production microbes are used to create yogurts, cheeses, and alcohols, by optimizing growth better yield can be gained. For food safety, understanding how growth medium and temperature effects the growth of “bad” microbes allows for better transportation and longer shelf life for food  products\autocite{Koutsoumanis2000ApplicationPredictions};\autocite{Ross2003ModelingAssessments};\autocite{Bruckner2012InfluencePoultry}, leading to less waste and better yield. The human microbiome is made up with tens of trillions of microorganisms which work with our bodies to keep us functioning smoothly, gut health is often talked about and understanding how to manage our microbiomes can help with many health related issues. Microbes are also used in vaccines and to help create medicines such as insulin, therefore helping these beneficially microbes to growth can have a big impact in the populations health. From the micro scale of the human micro biome to the macro ecosystem scale, many ecosystems rely on microbes to maintain soil\autocite{Davis2005EffectsBacteria}; \autocite{Lipson2015TheProcesses} make use specifically with the soil nitrogen and CO2 content. Like all living organisms microbes are effected by their environments, having optimal temperatures, space and nutrition needed to grow effectively, studies have also shown microbial growth to be affected by sound \autocite{Sarvaiya2015EffectMetabolites}.
+	\\
+	\\
+	It is well established that temperature has and effect microbial growth rate, with a linear relationship being observed between the square root growth rate and temperature \autocite{Ratkowsky1982RelationshipCultures}, with “thermodynamic efficiencies correspond to those predicted for optimization to maximal growth rate”\autocite{Westerhoff1983ThermodynamicWastage}. CO2 levels have also been seen to have a notable effect on the growth of some species of bacteria, with some species being unable to grow under differing CO2 conditions and others seeing no noticeable effect,\autocite{CoyneTheGrowth}, though the CO2 changes will alter pH levels in a growth medium this is not a sufficient explanation for the effect of CO2.
+	\\
+	\\
+	Growth medium composition both nutritionally and in terms of structure are important to consider when looking at microbial growth. Levels of nutrition including oxygen and Iron have been shown to have a significant effect of bacterial growth \autocite{Yang2001EffectsAMB-1}; \autocite{Davis2005EffectsBacteria}, choosing the right media to model growth is dependent on the microorganism being grown with some needing more specialized nutritional intake. When considering structure the porosity of the medium needs to be looked at in a multidisciplinary way with understanding of biological processes and physical  flow \autocite{Murphy2000ModelingMedia}. Modeling growth patterns may also be effected space \autocite{Dens2000OnProducts}, as models used to predict microbial growth often fail to account for inconsistency due to surface area and shape of the growing space.
+	\\
+	\\
+	Now that we have established why microbes are important and what they need to grow, we need to ask how to assess different parameters. This is often done through mathematical modeling. Models are used to see patterns in data, this then allows us to see if the pattern we expect from the model is being observed in out data or allows us to predict what we should be observing during an experiment. Empirical/Phenomenological models are equations that will describe the shape of a data set, but give no information about the parameters in a biological meaning. Mechanistic, by contrast, are specifically devised to look directly at biological parameters \autocite{MotulskyFittingGlance}. Because parameters are estimates of existing systems mechanistic models can be seen as more useful, however, if the wrong mechanistic model is used this can have an impact far worse then if a phenomenological had been used and could cause incorrect assumptions to be made about the mechanisms involved. Using models over statistical hypothesis testing using P values allows us to gather results from multiple competing hypothesis, rather than accepting the alternative hypothesis by rejecting the null \autocite{Johnson2004ModelEvolution}. Using Models can be beneficial as they allow more freedom to evaluate multiple models by rank and weight, this allows a quantitative measure to back competing hypothesis and by averaging models we can make strongly supported predictions and parameter estimates.
+	\\
+	\\
+	The main models used for microbial growth are: modified  logistic,  modified  Gompertz,  modified  Richards,  modified  Schnute,  Baranyi-Roberts, Von Bertalanffy, Huang and Buchanan  three-phase linear model \autocite{MohdYunusAbdShukor2014Evaluation1}. 
+	\\
+	\\
+	For this study growth rate data was collected from over 200 studies, different model fits were then compared.
+	
+	
+	
+	\section{Methods}
+	
+	\subsection{Comparing Cubic Polynomial, Grompertz and Barayi}
+	
+	Cubic Polynomial formula allows us to determine the roots of a cubic polynomial
+	\begin{equation}
+	f(x)=ax^{3}+bx^{2}+cx+d
+	\label{Cubic Poly}
+	\end{equation}
+	where a, b, c are the coefficients and d is a real number. Variable x takes real values.
+	\\  
+	Grompertz Modified gompertz growth model (Zwietering 1990)
+	
+	\begin{equation}
+	y = y_{0} + C(e^{(-e^{(\mu e(\lambda - t)/C+1)})})
+	\label{Grompertz}
+	\end{equation}
+	
+	
+	Baranyi
+	
+	\begin{equation}
+	\begin{array}{ccl}
+	y(t)  &  = & y0 + \mu A(t)- \ln(1 \frac{e ^{\mu A (t)}-1}{e C}) \\
+	A  &   = & t + \frac{1}{\mu} \ln(e^{\mu t}+e^{-\mu\lambda}-e^{-\mu(t + \lambda)})\\
+	\end{array}
+	\label{Barayi formula}
+	\end{equation}
+	
+	where \(y\) = log count or absorbance at time \(t\) ; \(y0\) = initial log count or absorbance; \(\mu\) = maximum growth rate; \(\lambda\) = lag time;  \(C\) = increase in log count or absorbance from \(y0\) to \(ymax\). 
+	
+	
+	
+	
+	\subsection{literature data for testing}
+	Data was collected from 285 studies, information extracted from these studies including: the Species used, Growth Medium, temperature, biomass as different time points, The data was then tidied by removing negative time and biomass point, as these were anomalous or otherwise unexplainable, and removing any subsets with less than 5 data points as these would not be able to be fitting to our chosen models. This data was then split into subset based on temperature, species, and citation***
+	\\
+	\subsection{Mathematical model analyses}
+	Analyses of the growth curve was obtained through the use on AIC, AICc and BIC. When fitting the curves in R studio(Cite) a 99 \% confidence limit was set
+	
+	
+	
+	\section{Results}
+	
+	When comparing the results of the AIC BIC and AICc outputs, the AIC and BIC consistently gave outputs where as the AICc would be unable to determine a best model or return and infinite value 
+	The Cubic Polynomial consistently out preformed both the Grompetz and Baranyi models base on AIC AICc and BIC, reliably being the best model over 67\% of the time as seen in table ***.
+	Figure 1 shows how good the different models were at fitting the data based on AICc when splitting the data by temperature. It can be seen the Cubic Polynomial was best over all but the Grompertz had a more even spread over the different temperatures where the Cubic polynomial was better at the lower and mid-range temperatures.
+	
+	
+	
+	\begin{table}[h]
+		\begin{tabular}{lll}
+			& Models     & Percent          \\
+			1 & Baranyi    & 1.44404332129964 \\
+			2 & Cubic Poly & 67.870036101083  \\
+			3 & Grompertz  & 27.4368231046931
+		\end{tabular}
+		\caption{test}
+	\end{table}
+	
+	\begin{table}[h]
+		\begin{tabular}{lll}
+			& Models     & Percent          \\
+			1 & Baranyi    & 1.44404332129964 \\
+			2 & Cubic Poly & 68.9530685920578 \\
+			3 & Grompertz  & 29.6028880866426
+		\end{tabular}
+	\end{table}
+	
+	
+	\begin{figure}[htbp]
+		\centering 
+		\begin{subfigure}[b]{0.4\textwidth}
+			\includegraphics[width=\textwidth]{../result/test.pdf}
+			\caption{Figure 1 : Show the distibution of best models based on temperature}
+			\label{fig:KWAMT plot}
+		\end{subfigure}
+	\end{figure}
+	
+	\section{Discussion}
+	From this study the cubic polynomial model was overall the best fitting model followed by the Grompertz, this contradicts previous studies which have shown Baranyi to outperform the Grompertz and a range of other models when looking at microbial growth \autocite{XiongComparisonA} ; \autocite{Pla2015ComparisonMethods}. This could be explained by issues with parameters such as maximum growth rate. Maximum growth rate has two definitions, when comparing Grompertz, Baranyi and Logistic model to obtain max growth rate it was found that logistic and Grompertz gave similar outputs but Baranyi was significantly different \autocite{Perni2005EstimatingEverything}. Because Grompertz does not account for mortality were as Baranyi can there may be some discrepancies in these models \autocite{Micha2011MicrobialCannot}, it can also be argues that we cannot assume maximum specific growth rate depends on temperature, pH, water or other factors. Therefore, using different methods to obtain maximum growth rates, lag time and other environmental factors as parameters will have a drastic effect on the ability of different model to fit especially Baranyi and Grompertz which are sensitive to changes in parameters \autocite{XiongComparisonA}.
+	\\
+	\\
+	When specifically looking at the best model in relation the temperature it was seen that the Grompertz had a more even spread. We would expect the Grompertz to work better over the different temperatures, however, we would have expected to see the Baranyi be an even better fit based off previous research \autocite{XiongComparisonA} \autocite{Lee2014ComparisonConditions}.
+	\\
+	\\
+	The effects seen by our study could be explained by the variation in data set. Some data can be seen to follow a clear growth curve whereas other look to be randomly distributed, therefore, the phenomenological models will be able to find to fit more consistently as they are just looking for a specific pattern whereas the mechanistic models will be trying to apply established mechanisms to chaotic data. Consequently, and combined approach should be taken when fitting models to data set \autocite{Murtaugh2014InValues}, with the phenomenological establishing the strength of a pattern and the mechanistic establishing whether the pattern seen is describing the relevant mechanism.  
+	\\
+	\\
+	When looking at comparing model fits the results of this study does follow the idea that AIC values are too tolerant and will allow for more complex models to be fit as when AICc was used not all models were fitted, \autocite{Westerhoff1983ThermodynamicWastage}, because the BIC uses an approximation of the Bayesian model selection to compute probability of the data given to a model it is seen to be the more robust out of the two measures. When all values were obtained the AIC, AICc and BIC all agree on which model was best and so I would follow that the choice of information criterion should be based upon hypothesis, as BIC will be better for when heterogeneity is large AIC and AICc will perform better when heterogeneity is small and AICc will be better still for small datasets \autocite{MarkJ.Brewer2016TheHeterogeneity}. 
+	\\
+	\\
+	There is an argument against the use of AIC, as it has been shown that the p value is deeply linked to the confine’s intervals and differences in AIC \autocite{Murtaugh2014InValues}. It is argued that the threshold to break ties among competing model is as arbitrarily chosen as Type I errors in and there for the choice of AIC over P value should be considered case by case and not written as dogma.
+	\\
+	\\
+	Future studies could consider looking at the different parameters such as species and growth medium to see which models work best based on those parameters. Additional model may also be tested to further compare phenomenological and mechanistic models such as the classic kinetic model \autocite{Fessas2017IsothermalModeling}, Buchanan and Logistic. Further considerations should also be made towards the data sets being used for comparison, during this study we were working with messy data sets that did not follow the expected growth curve, though this allowed use to see how the different models would handle these unconventional models they may not have given us a true picture on which model is the best when for looking at regular growth data.
+	
+	\section{Conclusion}
+	We set out to compare phenomenological and mechanistic models on a large data set collected from multiple studies, using different species, temperatures and growth medium. After tidying the data into manageable subset we found the cubic polynomial to be the best fitting model over 67\% of the time. We also discovered that when looking at the distribution on best model based on temperature the Grompertz was more evenly distributed. Though these finding contradict previous studies, we discuss the importance of equating parameters such as maximum growth rate and understanding of information criterion for assessing models. Lastly, we discussed how the further our understanding of model us as a means to assess microbial growth data, with the take away that a combined approach would be the most rounded and robust to future testing.
+	\section{Bibliography}
+	
+	
+	
+	\printbibliography
+\end{document}

@@ -29,7 +29,7 @@ model2 <- lm(test$log_PopBio  ~ test$Time + I(test$Time^2) + I(test$Time^3))
 
 #summary(model2)
 
-predicted.intervals <- predict(model1,data.frame(x=test$Time),interval='confidence',
+predicted.intervals <- predict(model2,data.frame(x=test$Time),interval='confidence',
                                level=0.99)
 
 

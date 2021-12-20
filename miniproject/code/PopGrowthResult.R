@@ -3,6 +3,8 @@ rm(list=ls())
 
 ## Imports ##
 require(viridis)
+require(dplyr)
+require(ggplot2)
 
 DF <- read.csv("../data/ModGrowthData.csv")
 Best_model<-read.csv("../result/BestModel.csv")
@@ -24,17 +26,23 @@ write.csv(BestBIC, "../result/BestBICModel.csv")
 
 
 # Graph for Temp data #
-
+k <- Best_model[which(Best_model[5] != "NA"),]
 TempData <- data.frame(Subset = 1:max(DF$ID),
                      Temp = 0,
-                     Bestmodel = Best_model$BestModelAIC,
+                     Bestmodel = Best_model$BestModelAICc,
                      stringsAsFactors = F)
+TempData <- data.frame(Subset = k$Subset,
+                      Temp = 0,
+                      Bestmodel = k$BestModelAICc,
+                      stringsAsFactors = F)
 
-for (i in 1:max(DF$ID)) {
-  d <- DF[ which(DF$ID == i),]
+for (i in 1:length(k$Subset)) {
+  
+  d <- DF[ which(DF$ID == k$Subset[i]),]
   TempData[i,"Temp"] <- d$Temp[1]
   
 }
+
 
 
 TempPlot <- ggplot(data = TempData) +
@@ -48,4 +56,4 @@ TempPlot <- ggplot(data = TempData) +
 
 
 
-ggsave(TempPlot, file= paste0("../result/TempBarGraph.png"))
+ggsave(TempPlot, file= paste0("../result/TempBarGraph.pdf"))
