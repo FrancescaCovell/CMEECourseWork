@@ -2,7 +2,7 @@
 
 rm(list=ls())
 
-setwd("/home/frcovell/CMEECourseWork/week3/code/")
+
 load("../data/KeyWestAnnualMeanTemperature.RData")
 ls()
 

@@ -3,8 +3,7 @@
 ################################################################
 rm(list=ls())
 require(tidyverse)
-getwd()
-setwd("/home/frcovell/CMEECourseWork/week3/code")
+
 ############# Load the dataset ###############
 # header = false because the raw data don't have real headers
 MyData<- as.matrix(read.csv("../data/PoundHillData.csv", header = FALSE))

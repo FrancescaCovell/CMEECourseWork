@@ -1,6 +1,5 @@
 rm(list=ls())
-getwd()
-setwd("/home/frcovell/CMEECourseWork/week3/code")
+
 require(ggplot2)
 
 build_ellipse <- function(hradius, vradius){ # function that returns an ellipse

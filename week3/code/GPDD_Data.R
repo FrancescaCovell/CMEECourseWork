@@ -1,6 +1,5 @@
 rm(list=ls())
-getwd()
-setwd("/home/frcovell/CMEECourseWork/week3/code")
+
 
 load("../data/GPDDFiltered.RData")
 require(maps)

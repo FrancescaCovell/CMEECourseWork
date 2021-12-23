@@ -1,6 +1,5 @@
 rm(list=ls())
-getwd()
-setwd("/home/frcovell/CMEECourseWork/week3/code")
+
 require(ggplot2)
 a <- read.table("../data/Results.txt", header = TRUE)
 

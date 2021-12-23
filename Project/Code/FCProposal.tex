@@ -1,0 +1,151 @@
+\documentclass[11pt]{article}
+\usepackage{lineno}
+\linenumbers
+\linespread{1.5}
+% Set page size and margins
+% Replace `letterpaper' with`a4paper' for UK/EU standard size
+\usepackage[a4paper,margin=2cm]{geometry}
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{helvet}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[backend=biber,style=authoryear]{biblatex}
+\addbibresource{FCProposalRef.bib}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\begin{document}
+%make title page
+\begin{titlepage}
+   \begin{center}
+       \vspace*{1cm}
+       \LARGE
+       \textbf{Effects of Deforestation on Community Composition}
+
+       \Large       
+       MRes Project Proposal
+            
+       \vspace{1.5cm}
+       \textbf{Author} \\
+       Francesca Covell \\
+       f.covell21@imperial.ic.ac.uk\\
+       \vspace{0.8cm}
+       \textbf{Supervisors:}\\
+       Cristina Bank-Leite \\
+       c.banks@imperial.ac.uk \\
+       Benjamin Howes\\
+       b.howes19@imperial.ac.uk\\
+    \vfill
+ 
+         % \Large
+        Department of Life Science\\
+        Imperial College London\\
+        Date: 23/12/2021
+            
+   \end{center}
+\end{titlepage}
+
+
+
+
+
+Key words: Tangled Nature Model, Species Interactions,  Deforestation, Habitat   Loss, Community Stability.
+
+\section{Introduction}
+
+Deforestation and introduction of non-native species are know to impact environmental change, \autocite{Moslemi2012ImpactsIndies}.But little is known about the effects of deforestation, habitat fragmentation and reintroduction on species interaction\autocite{Hagen2012BiodiversityWorld}. The Tangled nature model, a model of evolutionary ecology, has been used to model co-evolution and dynamics in populations of organizations, \autocite{Christensen2002TangledEcology, Arthur2017TheEcology}.\\This Project aims to use the Tangled nature model to look at community composition changes based on forest thresholds, with a further goal of looking at the effects of introducing a new species to these communities.
+
+\section{Methods}
+
+The Tangled Nature model(TNM) will be used to simulate communities in different levels of forest cover. A short-term spatially explicit version of TNM will be used with starting parameters as seen in Howes manuscript, as will landscape, maximum dispersal and probability of reproduction. Dynamic processed such as death, reproduction, migration and immigration will be used with introduction added to later run. This will allow us to see how introducing a new species to these systems effect interactions.
+
+\section{Anticipated outcomes}
+outputs: Interactions for species with 10 individuals present at time 2500 and instance of every species in each cell.\\
+outcomes: Determine the effects of different levels of deforestation and introduction of a new specie effects on communities. 
+
+\section{Project feasibility }
+
+TNM is written in C++, data analysis will be done in R studio using the Ubuntu operating system.The allocated time for this project should be adequate.
+
+
+% GanttHeader setups some parameters for the rest of the diagram
+% #1 Width of the diagram
+% #2 Width of the space reserved for task numbers
+% #3 Width of the space reserved for task names
+% #4 Number of months in the diagram
+% In addition to these parameters, the layout of the diagram is influenced
+% by keys defined below, such as y, which changes the vertical scale
+\def\GanttHeader#1#2#3#4{%
+ \pgfmathparse{(#1-#2-#3)/#4}
+ \linespread{0.5}
+ \tikzset{y=10mm, task number/.style={left, font=\bfseries},
+     task description/.style={text width=#3,  right, draw=none,
+           font=\sffamily, xshift=#2,
+           minimum height=2em},
+     gantt bar/.style={draw=black, fill=blue!30},
+     help lines/.style={draw=black!30, dashed},
+     x=\pgfmathresult pt
+     }
+  \def\totalmonths{#4}
+  \node (Header) [task description] at (0,0) {\textbf{\large Task Description Over Each Month}};
+  \begin{scope}[shift=($(Header.south east)$)]
+    \foreach \x in {1,...,#4}
+      \node[above] at (\x,0) {\footnotesize\x};
+ \end{scope}
+}
+
+% This macro adds a task to the diagram
+% #1 Number of the task
+% #2 Task's name
+% #3 Starting date of the task (month's number, can be non-integer)
+% #4 Task's duration in months (can be non-integer)
+\def\Task#1#2#3#4{%
+\node[task number] at ($(Header.west) + (0, -#1)$) {#1};
+\node[task description] at (0,-#1) {#2};
+\begin{scope}[shift=($(Header.south east)$)]
+  \draw (0,-#1) rectangle +(\totalmonths, 1);
+  \foreach \x in {1,...,\totalmonths}
+    \draw[help lines] (\x,-#1) -- +(0,1);
+  \filldraw[gantt bar] ($(#3, -#1+0.2)$) rectangle +(#4,0.6);
+\end{scope}
+}
+
+% Example
+\thispagestyle{empty}
+\begin{tikzpicture}
+  \GanttHeader{.8\textwidth}{2ex}{4cm}{8}
+  \Task{1}{Introduction write up}{0}{3}
+  \Task{2}{Method write up}{4.5}{1.5}
+  \Task{3}{Results and final write up}{5}{3}
+  \Task{4}{Getting to grips with C++ and TNM}{0}{2}
+  \Task{5}{Model change in landscape cover}{1.5}{2}
+  \Task{6}{Model new species introduction}{3.5}{2}
+  \Task{7}{Data analysis}{4.5}{3}
+\end{tikzpicture}
+
+
+\section{Itemized budget}
+\begin{table}[h!]
+\begin{center}
+\begin{tabular}{||c c c ||} 
+ \hline
+ Item & Cost & Information \\ [0.5ex] 
+ \hline\hline
+ Miscellaneous & £50 & Pocket money encase of emergency  \\
+ Petrol & £500 & For travel to and from campus\\
+ Total & £550 & \\ [1ex] 
+ \hline
+\end{tabular}
+\end{center}
+\caption{Proposed Budget.}
+\label{table:1}
+\end{table}
+
+\printbibliography
+\end{document}

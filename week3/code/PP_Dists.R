@@ -1,7 +1,7 @@
 
 rm(list=ls())
 getwd()
-setwd("/home/frcovell/CMEECourseWork/week3/code")
+
 require(plyr)
 
 MyDF <- read.csv("../data/EcolArchives-E089-51-D1.csv")
