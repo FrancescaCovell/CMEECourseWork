@@ -9,6 +9,7 @@ __version__ = '0.0.1'
 
 ## imports ##
 
+import pickle
 ## constants ##
 
 
@@ -18,7 +19,6 @@ __version__ = '0.0.1'
 
 my_dictionary = {"a key": 10, "another key": 11}
 
-import pickle
 
 f = open('../data/testp.p','wb')
 pickle.dump(my_dictionary, f)

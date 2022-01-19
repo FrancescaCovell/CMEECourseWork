@@ -32,6 +32,7 @@ def even_or_odd(x=0):
     return "%d is Odd!" % x
 
 def main(argv):
+    """ function to call, run and test even_or_odd"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     return 0

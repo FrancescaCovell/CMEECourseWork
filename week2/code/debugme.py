@@ -12,6 +12,7 @@ __version__ = '0.0.1'
 
 ## functions ##
 def buggyfunc(x):
+    """uses try to check for bugs"""
     y = x
     for i in range(x):
         try:        

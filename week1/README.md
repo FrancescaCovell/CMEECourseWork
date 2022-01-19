@@ -31,4 +31,4 @@ UnixPrac1.txt (contains solutions 1-5 of the fasta pratical)
 
 #Author Contact
 Francesca Covell
-francescacovell.login@imperial.ac.uk
+f.covell21@imperial.ac.uk

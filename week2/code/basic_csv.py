@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""open s=csv file and writes new file"""
+"""open csv file and writes new file"""
 
 #__appname__ = '[application name here]'
 __author__ = 'Francesca Covell(francesca.covell@imperial.ac.uk)'

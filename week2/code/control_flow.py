@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""""Some functions exeplifying the use of control statments"""
+"""look at conrtol flow, create 5 function to be called by main function"""
 #dacstrins are considered apart of the running code (normal comments are
 #stripped), Hence you can access your docstrings iat run time.
 __author__ = 'Francesca Covell (francesca.covell@imperial.ac.uk)' #change to full email
@@ -34,7 +34,7 @@ def is_prime(x=70):
     """finds prime"""
     for i in range(2,x):
         if x % i == 0:
-            print("%d is not prime: %d is a divisor") % (x, i)
+            print("%d is not prime: %d is a divisor" % (x, i))
             return False
     print("%d is prime" % x)
     return True
@@ -49,6 +49,7 @@ def find_all_prime(x=22):
     return allprime
 
 def main(argv):
+    """main function tests even_or_odd, largest_dicisor_five, is_prime, find_all_prime"""
     print(even_or_odd(22))
     print(even_or_odd(33))
     print(largest_dicisor_five(120))

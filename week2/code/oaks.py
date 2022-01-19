@@ -20,6 +20,7 @@ taxa = ['Quercus robur',
         ]
 
 def is_an_oak(name):
+    """returns all imstances of 'quercus ' in input (name) """
     return name.lower().startswith('quercus ')
 #can't get to work
 

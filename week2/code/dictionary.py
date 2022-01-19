@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""""Some functions exeplifying the use of control statments"""
+""""populate a dictionary derived from  taxa so that it maps order names to sets of taxa"""
 #dacstrins are considered apart of the running code (normal comments are
 #stripped), Hence you can access your docstrings iat run time.
 __author__ = 'Francesca Covell (francesca.covell@imperial.ac.uk)' #change to full email

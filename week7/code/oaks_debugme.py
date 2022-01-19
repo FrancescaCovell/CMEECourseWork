@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+"""use doctest to debug is_an_oak function"""
+__author__ = 'Francesca Covell (francesca.covell21@imperial.ac.uk'
+__version__ = '0.0.1'
+
+###imports###
 import csv
 import sys
 import doctest

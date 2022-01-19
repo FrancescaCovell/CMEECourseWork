@@ -1,14 +1,3 @@
-for j im range(12):
-    if j % 3 == 0:
-        ptint('hello')
-
-for j in range(15):
-    if j % 5 == 3:
-        print('hello')
-    elif j % 4 == 3:
-        print('hello')
-# going through 0-14 if modulo 5 or 4 equals 3 print hello  
-
 #!/usr/bin/env python3
 
 """examples of combining loops and conditionals"""
@@ -24,6 +13,18 @@ __version__ = '0.0.1'
 
 
 ## functions ##
+
+for j in range(12):
+    if j % 3 == 0:
+        print('hello')
+
+for j in range(15):
+    if j % 5 == 3:
+        print('hello')
+    elif j % 4 == 3:
+        print('hello')
+
+# going through 0-14 if modulo 5 or 4 equals 3 print hello  
 z = 0 
 while z != 15:
     print('hello')

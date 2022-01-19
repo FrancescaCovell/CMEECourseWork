@@ -28,6 +28,7 @@ if _a_global >= 5:
     _b_global = _a_global + 5 # also a global variable
 
 def a_function():
+    """Check valie of variable inside function"""
     _a_global = 5 # a local variable
 
     if _a_global >= 5:
@@ -50,12 +51,13 @@ print("Outside the function, the value of _b_global is ", _b_global)
 _a_global = 10
 
 def a_function():
+    """shows function can see global and local variables inside function"""
     _a_local = 4
 
-    print("Inside the function, the value _a_local is ", _a_local) #erro unexpected indent
+    print("Inside the function, the value _a_local is ", _a_local) 
     print("Inside the function, the value of _a_global is ", _a_global)
 
-    return None # error with return (SyntaxError: 'return' outside function)
+    return None 
 
 a_function()
 
@@ -70,6 +72,7 @@ _a_global = 10
 print("Outside the function, the value of _a_global is", _a_global)
 
 def a_function():
+    """show global variable can be change ithing a function"""
     global _a_global
     _a_global = 5
     _a_local = 4
@@ -86,9 +89,12 @@ print("Outside the function, the value of _a_global now is", _a_global)
 # example 4
 
 def a_function():
+    """initialises global variable, calls _a_function2 and returns none
+    global variable doesnt change untill return statment"""
     _a_global = 10
 
     def _a_function2():
+        """change global variable"""
         global _a_global
         _a_global = 20
 
@@ -109,8 +115,10 @@ print("The value of a_global in main workspace / namespace is ", _a_global)
 _a_global = 10
 
 def a_function():
-
+    """initialises global variable, calls _a_function2 with no return statment
+    global variable changes in _a_function2"""
     def _a_function2():
+        """change global variable"""
         global _a_global
         _a_global = 20
 

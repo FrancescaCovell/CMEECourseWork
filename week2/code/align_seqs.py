@@ -35,6 +35,8 @@ for x in seq1:
 #else do the opposite
 
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """ Calculates scores for alignments, inputs two sequences, the lengths of input sequences 
+    and start point. Checks in bases of sequences macht and give score based on matches """
     matched = "" # to hold string displaying alignements
     score = 0
     for i in range(l2):

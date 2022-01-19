@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""Description of this program or application.
-You can use several lines"""
+"""compare speed of list comprehension and loop"""
 __author__ = 'Francesca Covell (francesca.covell21@imperial.ac.uk'
 __version__ = '0.0.1'
 #__license__ = "License for this code/program"
