@@ -79,31 +79,35 @@ basic_csv.py (opens cvs and writes new csv files)\
 align_seq.py (program to compare scores of different sequence alignments)
 
 Week3\
+apply1.R (Build matix, look at mean by row, column and varience)\
+apply2.R (create SomeOperation to time inputs greater then 0 by 100, run on randomly filled 10 by 10 matrix)\
+basic_io.R (A simple script to illustrate R input-output)\
+boilerplate.R (function to test class of two inputs)\
+browse.R (Runs a simulation of exponential growth)\
+control_flow.R (looks at if statments for and while loops)\
+DataWrang.R (reshape PoundHillData.csv)\
+DataWrangTidy.R (tidy PoundHillData.csv)\
+Florida.R (Look at difference in Temperature between years and check for significants)\
+get_TreeHieght.py (group work, Program to compare tree hieghts of input file)\
+get_TreeHieght.R (group work, Program to compare tree hieghts of input file)\
+Gikro.R (plots ellipse)\
+GPDD_Data.R (map the Global Population Dynamics Database)\
+MyBars.R (creates barplots)\
+plotLin.R (creates line graph)\
+PP_Dists.R (draw and save 3 figs, subplotting by Predator mass, prey mass and size ratio, and calculate the log mean and median)\
+PP_Regress.R (run linear models on data based on feeding type and life stage)\
+PP_Regress_loc.R (group work, run linear models on data based on feeding type, life stage and location)\
+preallocate.R (look at effects of preallcation on run time)\
+R_conditionals.R(function to check even and power of 2)\
+Ricker.R (function to simulate Ricker model)\
+run_get_TreeHeight.sh (groupwork, Runs get_TreeHeight.r and get_TreeHeight.py on trees.csv from bash)\
+sample.R (look at loop vs vectorization with and without preallocation on run time)\
+TAutoCorr.R(group work, Look at difference in Temperature between sussecive years and check for significants)\
+TreeHeight.R (calculate Height based on angle and distance)\
+try.R (use try function to supresses errorr messages)\
+Vectorize1.R (use in-built vectorize function to inprove run time)\
+Vectorize2.R (vectorize Ricker model to improve run time)
 
-<<<<<<< HEAD
-Week4
-SwS_HO1_script.R (Counting birds)
-
-Week5
-Practical1.R (getting to grips with GIS in R)
-
-Week6
-Practical1.R (UnderstandingSNPs, Allele frequency and Genotype frequency)
-
-Week7
-timeitime.py (compare speed of list comprehension and loop)
-TestR.R (statment to be printed)
-TestR.py (run R script unsing subprocess)
-profileme2.py (profile code with prallocation)
-profileme.py (profile code to look at whats slows run time)
-MyFirstJupyterNb.ipynb (Jupyter note book to get use to format)
-LV1.py (recteating Lotka-Volterra model)
-
-#Author Contact
-Francesca Covell
-f.covell21@imperial.ac.uk
-
-=======
 Week4\
 SwS_HO1_script.R (Counting birds)
 
@@ -125,4 +129,3 @@ LV1.py (recteating Lotka-Volterra model)
 #Author Contact\
 Francesca Covell\
 f.covell21@imperial.ac.uk
->>>>>>> 9448769c716a3ac58db969f8a36dd176b31c2fc5
