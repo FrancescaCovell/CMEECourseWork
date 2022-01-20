@@ -12,7 +12,18 @@
 # OUTPUT
 # The heights of the tree, same units as "distance"
 
-#Function to calculate Hight based on angle and distance 
+# Take inputs from command line 
+args = commandArgs(trailingOnly = TRUE) # Provides access to a copy of the command line arguments 
+                                        # trailingOnly = TRUE: character vector of arguments supplied after --args
+
+# argument check
+if (length(args)==0) {
+  stop("At least one argument must be supplied (input file).n", call.=FALSE) #stop current expression. call.=FALSE stops error message containing a reference to hidden function
+} else if (!grepl("\\.csv$", args)) { #check file suffix
+  stop("Agunent must be .csv", call.=FALSE) 
+}
+
+#Function to calculate Height based on angle and distance 
 TreeHeight <- function(degrees, distance){
   radians <- degrees * pi / 180
   height <- distance * tan(radians)
@@ -21,12 +32,10 @@ TreeHeight <- function(degrees, distance){
   return(height)
 }
 
-#test function
-TreeHeight(37, 40)
+
 
 #import csv file
-tree <- read.csv("../data/trees.csv")
-tree
+tree <- read.csv(args)
 
 #run function on csv 
 Height <-vector() 
@@ -42,4 +51,10 @@ TreeHts<- data.frame(Species =  tree$Species,
                      Tree.hight.m = Height )
 
 #output dataframe as csv
-write.csv( TreeHts, "../results/TreeHts.csv")
+#remove relative path and suffix 
+outputname <- gsub("\\.csv$","", args, ignore.case= TRUE)
+outputname <- gsub("\\../data/","", outputname, ignore.case = TRUE)
+#create new relative path
+output <- paste0("../results/", outputname,"_TreeHts.csv")
+write.csv( TreeHts,  output)
+

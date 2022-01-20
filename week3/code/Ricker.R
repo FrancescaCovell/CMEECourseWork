@@ -1,9 +1,11 @@
 
-
+# Ricker moel function
 Ricker <- function(N0=1, r=1, K=10, generations=50)
   {
+  #run simulation of the ricker model
+  #returns a vector of length generation
   
-  N <- rep(NA, generations)
+  N <- rep(NA, generations) # creates a vector of NA
   
   N[1] <-N0
   for (t in 2:generations)

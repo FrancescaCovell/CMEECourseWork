@@ -10,7 +10,7 @@ myexperiment <- function(popn, n) {
 
 #calculate mean using loop
 loopy_sample1 <- function(popn, n, num){
- result1<- vector()
+ result1<- vector() # initialize empty vector, size 1
  for (i in 1:num) {
    result1 <- c(result1, myexperiment(popn, n))
  }
@@ -20,7 +20,7 @@ loopy_sample1 <- function(popn, n, num){
 
 #run num iterations of experiment usng for loop on vector with preallocation
 loopy_sample2 <- function(popn, n, num) {
-  result2 <- vector(,num)
+  result2 <- vector(,num) # preallocate expected size
   for (i in 1:num) {
     result2[i] <- myexperiment(popn, n)
   }
@@ -29,7 +29,7 @@ loopy_sample2 <- function(popn, n, num) {
 
 #run num iterations of experiment usng for loop on list with preallocation
 loopy_sample3 <- function(popn, n, num){
-  result3 <- vector("list", num)
+  result3 <- vector("list", num) 
   for (i in 1:num) {
     result3[[i]] <- myexperiment(popn, n)
   }
@@ -51,11 +51,11 @@ sapply_sample <- function(popn, n, num){
 
 # setting perametre
 set.seed(12345)
-popn <- rnorm(10000)
+popn <- rnorm(10000) # generate population
 hist(popn)
 
-n <- 100
-num <- 10000
+n <- 100 # sample size for each experiment 
+num <- 10000# number of times to rerun experiment 
 
 print("Using loops without preallocation on a vector took:" )
 print(system.time(loopy_sample1(popn, n, num)))
