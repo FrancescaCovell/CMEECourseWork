@@ -4,7 +4,7 @@
 In class codes and praticles 
 
 #Languages
-unix Ubuntu version 20.04.3 LTS
+unix Ubuntu version 20.04.3 LTS \n
 Python 3.8.10
 R version 4.1.2 (2021-11-01)
  
