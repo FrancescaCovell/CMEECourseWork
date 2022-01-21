@@ -63,3 +63,4 @@ def foo_6(x):
         facto = facto * x 
         x = x -1
     return facto
+

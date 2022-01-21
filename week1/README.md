@@ -1,20 +1,20 @@
-#Week 1
+# Week 1
 
-#Description\ 
+## Description 
 Week 1 in class codes and praticles 
 
-#Languages\
+## Languages
 unix Ubuntu version 20.04.3 LTS
  
-#Dependencies\
-Linux:\
-imagemagick\
-textlive-full\
-textlive-fonts-recomended\
-textlive-pictures\
-textlive-latex-extra
+## Dependencies
+#### Linux:
+- imagemagick
+- textlive-full
+- textlive-fonts-recomended
+- textlive-pictures
+- textlive-latex-extra
 
-#Structure and Usage\
+## Structure and Usage
 working codes are found in the code folder
 necessary files to run code on is found in code folder except .fasta files for UnixPrac1.txt which are stored in data folder
 results folder should be populated with output from code
@@ -39,6 +39,6 @@ test.txt (test file to be used with CountLine.sh)\
 test2.txt (test file to be used with CountLine.sh)\
 test3.txt (test file to be used with CountLine.sh)\
 
-#Author Contact\
+## Author Contact
 Francesca Covell\
 f.covell21@imperial.ac.uk

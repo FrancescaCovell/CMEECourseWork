@@ -1,19 +1,19 @@
-#Week 2
+# Week 2
 
-#Description\
+## Description
 Week 2 in class codes and praticles 
 
-#Languages\
+## Languages
 unix Ubuntu version 20.04.3 LTS\
 Python 3.8.10
  
-#Dependencies\
-sys\
-doctest\
-pickle\
-csv
+## Dependencies
+- sys
+- doctest
+- pickle
+- csv
 
-#Structure and Usage\
+## Structure and Usage
 working codes are found in the code folder
 necessary data to run code on is found in data folder
 results folder should be populated with output from code
@@ -45,6 +45,6 @@ align_seq.py (program to compare scores of different sequence alignments)\
 align_seq_better.py(group work, equally-best alignments are recorded and saved)
 
 
-#Author Contact\
+## Author Contact
 Francesca Covell\
 f.covell21@imperial.ac.uk
