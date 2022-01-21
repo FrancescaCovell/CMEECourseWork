@@ -1,17 +1,17 @@
-##Francesca Covell CMEE Coursework Repository
+## Francesca Covell CMEE Coursework Repository
 
-#Description\ 
+## Description\ 
 In class codes and praticles 
 
-#Languages\
+## Languages\
 unix Ubuntu version 20.04.3 LTS\
 Python 3.8.10\
 R version 4.1.2 (2021-11-01)
  
-#Dependencies\
+## Dependencies\
 Linux:\
-imagemagick\
-textlive-full\
+- imagemagick\
+- textlive-full\
 textlive-fonts-recomended\
 textlive-pictures\
 textlive-latex-extra
@@ -38,7 +38,7 @@ sp\
 units
 
 
-#Structure and Usage\
+## Structure and Usage\
 Direcory is spliting into week, within each week working codes are found in the code folder
 necessary data to run code on is found in data folder
 results folder should be populated with output from code
@@ -126,6 +126,6 @@ profileme.py (profile code to look at whats slows run time)\
 MyFirstJupyterNb.ipynb (Jupyter note book to get use to format)\
 LV1.py (recteating Lotka-Volterra model)
 
-#Author Contact\
+## Author Contact\
 Francesca Covell\
 f.covell21@imperial.ac.uk
