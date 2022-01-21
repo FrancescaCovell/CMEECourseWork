@@ -18,6 +18,7 @@ working codes are found in the code folder
 necessary data to run code on is found in data folder
 results folder should be populated with output from code
 
+#### code
 using_name.py (usning __name__ == '__main__')\
 tuple.py (output birds latin name, common name and mass in easy to read format)\
 test_contol_flow.py (functions to look at control statment)\
@@ -44,6 +45,21 @@ align_seq_fasta.py(group work, take any two fasta sequence compare scores of ali
 align_seq.py (program to compare scores of different sequence alignments)\
 align_seq_better.py(group work, equally-best alignments are recorded and saved)
 
+#### data
+BestAlignment.txt\
+JustOaksData.csv\
+TestOaksData.csv\
+bodymass.csv\
+pickle\
+sequence.csv\
+test.txt\
+testcsv.csv\
+testout.txt\
+testp.p\
+#### fasta
+407228326.fasta\
+407228412.fasta\
+E.coli.fasta\
 
 ## Author Contact
 Francesca Covell\

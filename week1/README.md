@@ -19,7 +19,7 @@ working codes are found in the code folder
 necessary files to run code on is found in code folder except .fasta files for UnixPrac1.txt which are stored in data folder
 results folder should be populated with output from code
 
-
+#### code
 boilerplate.sh (Prints "this is a shell script)\
 variable.sh (shows the use of variables and how to read multivariables)\
 CompileLaTex.sh (converts .tex files to .pdf with citations from .bib)\
@@ -38,6 +38,23 @@ FitstExample.pdf (output file from CompileLaTex.sh)\
 test.txt (test file to be used with CountLine.sh)\
 test2.txt (test file to be used with CountLine.sh)\
 test3.txt (test file to be used with CountLine.sh)\
+
+#### data
+407228326.fasta\
+407228412.fasta\
+E.coli.fasta\
+FirstBibiol.bib (bibliography for use with CompileLaTex.sh)\
+FirstExample.tex (tex file to be converted to pdf with CompileLaTex.sh)\
+FitstExample.pdf (output file from CompileLaTex.sh)\
+test.txt (test file to be used with CountLine.sh)\
+test2.txt (test file to be used with CountLine.sh)\
+test3.txt (test file to be used with CountLine.sh)\
+#### Temoeratures
+1800.csv
+1801.csv
+1802.csv
+1803.csv
+
 
 ## Author Contact
 Francesca Covell\

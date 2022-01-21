@@ -29,6 +29,7 @@ working codes are found in the code folder
 necessary data to run code on is found in data folder
 results folder should be populated with output from code
 
+#### code
 apply1.R (Build matix, look at mean by row, column and varience)\
 apply2.R (create SomeOperation to time inputs greater then 0 by 100, run on randomly filled 10 by 10 matrix)\
 basic_io.R (A simple script to illustrate R input-output)\
@@ -58,6 +59,20 @@ try.R (use try function to supresses errorr messages)\
 Vectorize1.R (use in-built vectorize function to inprove run time)\
 Vectorize2.R (vectorize Ricker model to improve run time)
 
+#### data
+PP_Results.csv\
+CorrelationFrequency.png\
+EcolAchives-E089-51-D1.csv\
+Florida.synctex.gz\
+Forida.tex\
+GPDDFiltered.RData\
+KeyWestAnnualMeanTemperture.RData\
+PoundHillData.csv\
+PoundHillMetaData.csv\
+Results.txt\
+TAutoCor.txt\
+TempByYear.png\
+trees.csv\
 
 
 
