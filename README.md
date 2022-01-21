@@ -1,22 +1,22 @@
 ## Francesca Covell CMEE Coursework Repository
 
-## Description\ 
+## Description
 In class codes and praticles 
 
-## Languages\
+## Languages
 unix Ubuntu version 20.04.3 LTS\
 Python 3.8.10\
 R version 4.1.2 (2021-11-01)
  
-## Dependencies\
-Linux:\
+## Dependencies
+### Linux:
 - imagemagick\
 - textlive-full\
 - textlive-fonts-recomended\
 - textlive-pictures\
 - textlive-latex-extra
 
-Python:\
+### Python:
 - sys\
 - doctest\
 - pickle\
@@ -29,7 +29,7 @@ Python:\
 - scipy\
 - matplotlib.pylab
 
-R:\
+### R:
 - dplyr\
 - rgdal\
 - raster\
@@ -43,7 +43,7 @@ Direcory is spliting into week, within each week working codes are found in the 
 necessary data to run code on is found in data folder
 results folder should be populated with output from code
 
-Week1\
+### Week1
 boilerplate.sh (Prints "this is a shell script)\
 variable.sh (shows the use of variables and how to read multivariables)\
 CompileLaTex.sh (converts .tex files to .pdf with citations from .bib)\
@@ -54,7 +54,7 @@ tabtocsv.sh (converts .txt file to .csv file)\
 tiff2png.sh (converts .tiff file to .png file)\
 UnixPrac1.txt (contains solutions 1-5 of the fasta pratical)
 
-Week2\
+### Week2
 using_name.py (usning __name__ == '__main__')\
 tuple.py (output birds latin name, common name and mass in easy to read format)\
 test_contol_flow.py (functions to look at control statment)\
@@ -78,7 +78,7 @@ basic_io1.py (different exaples of ways to open txt file)\
 basic_csv.py (opens cvs and writes new csv files)\
 align_seq.py (program to compare scores of different sequence alignments)
 
-Week3\
+### Week3
 apply1.R (Build matix, look at mean by row, column and varience)\
 apply2.R (create SomeOperation to time inputs greater then 0 by 100, run on randomly filled 10 by 10 matrix)\
 basic_io.R (A simple script to illustrate R input-output)\
@@ -108,16 +108,16 @@ try.R (use try function to supresses errorr messages)\
 Vectorize1.R (use in-built vectorize function to inprove run time)\
 Vectorize2.R (vectorize Ricker model to improve run time)
 
-Week4\
+### Week4
 SwS_HO1_script.R (Counting birds)
 
-Week5\
+### Week5
 Practical1.R (getting to grips with GIS in R)
 
-Week6\
+### Week6
 Practical1.R (UnderstandingSNPs, Allele frequency and Genotype frequency)
 
-Week7\
+### Week7
 timeitime.py (compare speed of list comprehension and loop)\
 TestR.R (statment to be printed)\
 TestR.py (run R script unsing subprocess)\
