@@ -72,7 +72,7 @@ PoundHillMetaData.csv\
 Results.txt\
 TAutoCor.txt\
 TempByYear.png\
-trees.csv\
+trees.csv
 
 
 

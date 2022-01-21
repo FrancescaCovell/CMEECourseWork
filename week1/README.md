@@ -50,9 +50,9 @@ test.txt (test file to be used with CountLine.sh)\
 test2.txt (test file to be used with CountLine.sh)\
 test3.txt (test file to be used with CountLine.sh)\
 #### Temoeratures
-1800.csv
-1801.csv
-1802.csv
+1800.csv\
+1801.csv\
+1802.csv\
 1803.csv
 
 

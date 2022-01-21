@@ -55,11 +55,11 @@ sequence.csv\
 test.txt\
 testcsv.csv\
 testout.txt\
-testp.p\
+testp.p
 #### fasta
 407228326.fasta\
 407228412.fasta\
-E.coli.fasta\
+E.coli.fasta
 
 ## Author Contact
 Francesca Covell\
