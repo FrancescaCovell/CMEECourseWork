@@ -12,30 +12,30 @@ R version 4.1.2 (2021-11-01)
 Linux:\
 - imagemagick\
 - textlive-full\
-textlive-fonts-recomended\
-textlive-pictures\
-textlive-latex-extra
+- textlive-fonts-recomended\
+- textlive-pictures\
+- textlive-latex-extra
 
 Python:\
-sys\
-doctest\
-pickle\
-csv\
-timeit\
-time\
-subprocess\
-numpy\
-doctest\
-scipy\
-matplotlib.pylab
+- sys\
+- doctest\
+- pickle\
+- csv\
+- timeit\
+- time\
+- subprocess\
+- numpy\
+- doctest\
+- scipy\
+- matplotlib.pylab
 
 R:\
-dplyr\
-rgdal\
-raster\
-sf\
-sp\
-units
+- dplyr\
+- rgdal\
+- raster\
+- sf\
+- sp\
+- units
 
 
 ## Structure and Usage\
