@@ -9,7 +9,7 @@ Python 3.8.10\
 R version 4.1.2 (2021-11-01)
  
 ## Dependencies
-### Linux:
+#### Linux:
 - imagemagick\
 - textlive-full\
 - textlive-fonts-recomended\
