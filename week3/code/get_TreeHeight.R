@@ -1,60 +1,51 @@
-## Example Function ##
+#!/usr/bin/Rscript 
+#get_TreeHeight.R
 
-# This function calculates heights of trees given distance of each tree 
-# from its base and angle to its top, using  the trigonometric formula 
-#
-# height = distance * tan(radians)
-#
-# ARGUMENTS
-# degrees:   The angle of elevation of tree
-# distance:  The distance from base of tree (e.g., meters)
-#
-# OUTPUT
-# The heights of the tree, same units as "distance"
+rm(list=ls())
 
-# Take inputs from command line 
-args = commandArgs(trailingOnly = TRUE) # Provides access to a copy of the command line arguments 
-                                        # trailingOnly = TRUE: character vector of arguments supplied after --args
+# to do:
+#includes the input file name in the output file name as InputFileName_treeheights.csv. 
+# remove the prefix and the suffix from the file to get only the name 
+args = commandArgs(trailingOnly=TRUE) # function to scan the arguments supplied to R 
 
-# argument check
-if (length(args)==0) {
-  stop("At least one argument must be supplied (input file).n", call.=FALSE) #stop current expression. call.=FALSE stops error message containing a reference to hidden function
-} else if (!grepl("\\.csv$", args)) { #check file suffix
-  stop("Agunent must be .csv", call.=FALSE) 
+if (length(args) == 0) {
+  print("No input file was given: using trees.csv as a default file")
+  args[1] <- "../data/trees.csv"
+} else if (length(args) >1){
+  print("too many inputs were provided: using trees.csv as a default file")
+  args[1] <- "../data/trees.csv" 
+} else if (length(args) == 1 && file.exists(args[1])){
+  print(paste("The input file is:", args[1]))
+} else{
+   print("we can not find the input file. Using trees.csv")
+   args[1] <- "../data/trees.csv"
 }
 
-#Function to calculate Height based on angle and distance 
+
+Trees <- read.csv(args[1], header = TRUE) #reading the csv of args[1]
+
+#degrees <- Trees$Angle.degrees #puts angle in degrees
+#distance <- Trees$Distance.m # puts distances in distance
+
 TreeHeight <- function(degrees, distance){
-  radians <- degrees * pi / 180
+ radians <- degrees * pi / 180 #this i to convert the degrees to radian
   height <- distance * tan(radians)
-  print(paste("Tree height is:", height))
-  
-  return(height)
+  return (height)
 }
 
+Trees$Tree.Height.m <- TreeHeight(Trees$Angle.degrees, Trees$Distance.m) #runs the function and rint output in TreeHeight
+#Trees # to display the table in bash 
 
+#write.csv(Trees, "../results/trees.csv", row.names  =F)#write in new file
 
-#import csv file
-tree <- read.csv(args)
+#outputfilename <- paste0(basename(tools::file_path_sans_ext(args[1])),"_treeheights.csv") 
 
-#run function on csv 
-Height <-vector() 
-for (i in 1:length(tree$Species)) {
-  Height[i]<-TreeHeight(tree$Angle.degrees[i], tree$Distance.m[i])
-  
-}
+# removing the extansion with the tools::file_path_
+# paste0 is like paste() but it has sep = "" as default argument , so any string gets merged together
 
-#create data frame of results 
-TreeHts<- data.frame(Species =  tree$Species,
-                     Distance.m = tree$Distance.m,
-                     Angle.degrees = tree$Angle.degrees,
-                     Tree.hight.m = Height )
+#write.csv(Trees, paste0(tools::file_path_sans_ext(args[1]),"_treeheights.csv"), "../results")
+write.csv(Trees, paste0("../results/",basename(tools::file_path_sans_ext(args[1])),"_treeheights.csv"),row.names = FALSE)
 
-#output dataframe as csv
-#remove relative path and suffix 
-outputname <- gsub("\\.csv$","", args, ignore.case= TRUE)
-outputname <- gsub("\\../data/","", outputname, ignore.case = TRUE)
-#create new relative path
-output <- paste0("../results/", outputname,"_TreeHts.csv")
-write.csv( TreeHts,  output)
-
+#output_folder <- paste0("../results/",outputfilename)
+#write.csv(Trees, output_folder)
+print("Script complete!")
