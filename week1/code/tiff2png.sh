@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# imagemagick must be installed 
+
 for f in *.tif;
     do 
         echo "Converting $f";

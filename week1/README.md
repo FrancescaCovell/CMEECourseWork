@@ -16,8 +16,9 @@ textlive-latex-extra
 
 #Structure and Usage\
 working codes are found in the code folder
-necessary data to run code on is found in data folder
+necessary files to run code on is found in code folder except .fasta files for UnixPrac1.txt which are stored in data folder
 results folder should be populated with output from code
+
 
 boilerplate.sh (Prints "this is a shell script)\
 variable.sh (shows the use of variables and how to read multivariables)\
@@ -28,6 +29,15 @@ csvrospace.sh (converts .csv file to .txt file)\
 tabtocsv.sh (converts .txt file to .csv file)\
 tiff2png.sh (converts .tiff file to .png file)\
 UnixPrac1.txt (contains solutions 1-5 of the fasta pratical)
+
+exampleTIF.tif (file to be converted into png with tiff2png.sh)\
+exampleTIF.png (output file from tiff2png.sh)\
+FirstBibiol.bib (bibliography for use with CompileLaTex.sh)\
+FirstExample.tex (tex file to be converted to pdf with CompileLaTex.sh)\
+FitstExample.pdf (output file from CompileLaTex.sh)\
+test.txt (test file to be used with CountLine.sh)\
+test2.txt (test file to be used with CountLine.sh)\
+test3.txt (test file to be used with CountLine.sh)\
 
 #Author Contact\
 Francesca Covell\
