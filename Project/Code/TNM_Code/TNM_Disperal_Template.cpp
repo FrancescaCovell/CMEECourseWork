@@ -25,7 +25,9 @@ int fragmentation = 0;                      // If 0 creates new community in non
 int defSeed = 1;                            // This is the default seed that will be used if one is not provided in the command line argument (recommend using command line
 double defDisp = 1;                         // FC Defult dispersal distance 
 double defInteract = 1;                     // FC Defult interaction distance
-double defIntraspecific = 0;                     // FC Defult intraspecific competition
+double defIntraspecific = 0;                // FC Defult intraspecific competition
+double defImmFrag = 0.0005;                     // FC Defult immigration rate
+double Immigrat;                            // FC Store immigration rate from comad line
 
 
 const int cellRows = 11;                    //Sets the number of cells in the rows of the landscape (Note: must match landscape file used in code, if using file).
@@ -42,8 +44,8 @@ const int numGenPost = 2000;                //2000 Number of generations to run 
 const int initPop = 100;                    // Number of individuals to put into each cell at the start of the model.
 
 const float probDeath = 0.15;               // Probability of individual dying if chosen.
-float probImm = 0.0005;                      // Probability of an individual immigrating into a cell (individual of a random species suddenly occurring in a cell).
-float probImmFrag = 0;                  // Probability of an individual immigrating into a cell after fragmentation (individual of a random species suddenly occurring in a cell).
+double probImm;                      // Probability of an individual immigrating into a cell (individual of a random species suddenly occurring in a cell).
+double probImmFrag;                  // Probability of an individual immigrating into a cell after fragmentation (individual of a random species suddenly occurring in a cell).
 float probDisp = 0.01;                       // Probability of an individual dispersing from one cell to another cell. This is a baseline, and will increase from this with increasing density.
 const float probInt = 0.5;                  // Fraction of non-zero interactions. Aka approximate fraction of interactions that will occur.
 
@@ -74,6 +76,7 @@ int seed;
 double DispDist;                                // FC Store dispersal distance
 double InteractDist;                            // FC Store interaction distance
 double Intraspecific;                           // FC Store Intraspecific interaction
+
 
 
 double percPop[numSpec][2];                     // Store percentage of population each species makes up
@@ -121,6 +124,7 @@ void store2ColFiles(ofstream &stream, int firstCol, int secondCol);
 void store3ColFiles(ofstream &stream, int firstCol, int secondCol, int thirdCol[]);
 void store4ColFiles(ofstream &stream, int firstCol, int secondCol, int thirdCol, int fourthCol[][numSpec]);
 void storeNum(int num, string fileName, string outpath);
+void storeParam(string fileName, string outpath);
 void readNum(int &num, string fileName, string inpath);
 
 void calculatePercPop(double (&percPop)[numSpec][2], int (&totalPopSpec)[numSpec], int totalPop);
@@ -238,9 +242,9 @@ int main(int argc, char *argv[]) {
     // 2) With the old community seed defined, a new seed, fragmentation (set to 1), and a landscape file to fragment to
     // Under all other circumstances we want to exit the program (other than no arguments, when we just make a new community with seed 1 as an example)
     
-    if(argc == 2) {seed = atof(argv[1]); DispDist = defDisp; InteractDist = defInteract; Intraspecific = defIntraspecific; } else {seed = defSeed; DispDist = defDisp; InteractDist = defInteract; Intraspecific = defIntraspecific;}
+    if(argc == 2) {seed = atof(argv[1]); DispDist = defDisp; InteractDist = defInteract; Intraspecific = defIntraspecific; probImm = defImmFrag; } else {seed = defSeed; DispDist = defDisp; InteractDist = defInteract; Intraspecific = defIntraspecific; probImm = defImmFrag;}
     
-    if(argc == 5) {seed = atof(argv[1]); DispDist = atof(argv[2]); InteractDist = atof(argv[3]); Intraspecific = atof(argv[4]);} 
+    if(argc == 6) {seed = atof(argv[1]); DispDist = atof(argv[2]); InteractDist = atof(argv[3]); Intraspecific = atof(argv[4]); probImm = atof(argv[5]);} 
     
     if(argc == 9) {
         seed = atof(argv[1]);
@@ -248,12 +252,13 @@ int main(int argc, char *argv[]) {
         DispDist = atof(argv[3]);
         InteractDist = atof(argv[4]);
         Intraspecific = atof(argv[5]);
-        fragmentation = atof(argv[6]);
-        fragName = argv[7];
+        probImmFrag = atof(argv[6]);
+        fragmentation = atof(argv[7]);
+        fragName = argv[8];
         fraginpath = "../../Data/Fragments/";
     }
 
-    if(argc == 3 || argc == 6 || argc == 7 || argc == 8 || argc > 9) {
+    if(argc == 3 ||argc == 4 ||argc == 5 || argc == 7 || argc == 8 || argc > 10) {
         cout << "Unexpected number of command line arguments" << endl;
         cout << "Either input a seed for new community" << endl;
         cout << "Or input the old seed, new seed, fragmentation (1), and a fragmented landscape file path" << endl;
@@ -267,6 +272,7 @@ int main(int argc, char *argv[]) {
     string landpath = outpath + "/Landscape";                // Folder for output of landscape files.
     string finpath = outpath + "/Final_Output";              // Folder for final generation outputs for use in future models.
     string fragpath = outpath + "/Fragmentation";               // Folder to hold future fragmentation outcomes
+    string finfragpath = outpath + "/Final_Frag_Output";              // Folder for final generation outputs for use in future models.
 
     // Make new directory at output location named after the seed
 
@@ -349,6 +355,9 @@ int main(int argc, char *argv[]) {
         storeArray<double>(SvG, numSpec, "/SvG.txt", outpath);
         createDisp(disp);
         storeArray<double>(disp, numSpec, "/disp.txt", outpath);
+        storeParam("/Parameters.txt", outpath);
+
+
 
         // Make default landscape based on rows, columns and numCells provided (aka all cells forest)
         for (int i = 0; i < cellRows; i++) {fill_n(landscapeArray[i], cellCols, 1);}
@@ -378,7 +387,12 @@ int main(int argc, char *argv[]) {
     // Open files to output to
     if (fragmentation == 1) {
         respath = fragoutpath + "/Results";
+        finfragpath = fragoutpath + "/Final_Frag_Output";              // Folder for final generation outputs for use in future models.
+        storeParam("/FragParameters.txt", fragoutpath);
+
         mkdir(respath.c_str(), 07777);     
+        mkdir(finfragpath.c_str(), 07777);
+
     }
 
     ofstream s_totalPop;
@@ -393,6 +407,7 @@ int main(int argc, char *argv[]) {
     s_totalPopSpec.open(respath + "/totalPopSpec.txt");
     ofstream s_cellPopSpec;
     s_cellPopSpec.open(respath + "/cellPopSpec.txt");
+    
   
 
     // Is the number of generations for before fragmentation or after fragmentation?
@@ -470,6 +485,22 @@ int main(int argc, char *argv[]) {
         store2DArray<int, numSpec>(cellPopSpec, numSpec, numCells, "/final_cellPopSpec.txt", finpath);
         
     }
+    
+    if(fragmentation == 1) {
+
+        // Remove populations of species which don't make up the "stable community" 
+//comment out
+//        keep_Stable_Species(totalPop, totalRich, totalPopSpec, cellPop, cellRich, cellPopSpec, mainPop, numCells, numSpec);
+// to here 
+        storeNum(totalPop, "/final_frag_totalPop.txt", finfragpath);
+        storeNum(totalRich, "/final_frag_totalRich.txt", finfragpath);
+        storeArray<int>(cellPop, numCells, "/final_frag_cellPop.txt", finfragpath);
+        storeArray<int>(cellRich, numCells, "/final_frag_cellRich.txt", finfragpath);
+        storeArray<int>(totalPopSpec, numSpec, "/final_frag_totalPopSpec.txt", finfragpath);
+        store2DArray<int, numSpec>(cellPopSpec, numSpec, numCells, "/final_frag_cellPopSpec.txt", finfragpath);
+        
+    }
+
 
     // Close all streams to files
     s_totalPop.close(); s_totalRich.close(); s_cellPop.close(); s_cellRich.close(); s_totalPopSpec.close(); s_cellPopSpec.close();
@@ -513,6 +544,19 @@ void storeNum(int num, string fileName, string outpath) {
     file.open(outpath + fileName);
 
     file << num << "\n";
+
+    file.close();
+
+}
+void storeParam(string fileName, string outpath) {
+
+    ofstream file;
+    file.open(outpath + fileName);
+
+    file << "Dispersal Distance = " << DispDist << "\n";
+    file << "Interaction Distance = " << InteractDist << "\n";
+    file << "Intraspecific Competition = " << Intraspecific << "\n";
+    file << "Immigration Rate  = " << Immigrat << "\n";
 
     file.close();
 
@@ -806,9 +850,12 @@ double gaussian(mt19937& eng) {
 void createJMatrix(double (&J)[numSpec][numSpec], double probInt, mt19937& eng) {
     for (int i = 0; i < numSpec; i++){
         for (int j = 0; j < numSpec; j++) {
-            if(i == j || uniform(eng) <= probInt) {
+            if(i == j ) {
+                J[i][j] = Intraspecific;
+            } else if (uniform(eng) <= probInt){
                 J[i][j] = 0;
-            } else {
+            }
+            else {
                 J[i][j] = gaussian(eng);
             } 
         }

@@ -1,0 +1,4 @@
+Dispersal Distance =0
+Interaction Distance =0
+Intraspecific Competition =0
+Immigration Rate During Burn-in  =0.0005

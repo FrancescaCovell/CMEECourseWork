@@ -15,12 +15,15 @@ read InteractDist
 echo "Enter Intraspecific competition"
 read IntraComp
 
-g++ TNM_Disperal_Template.cpp
+echo "Enter Immigration rate"
+read Immigrat
+
+g++ TNM_CommandLine_Template.cpp
 
 for i in $(seq $seed1 $seed2)
 do
     
-    ./a.out $i $DispDist $InteractDist $IntraComp &
+    ./a.out $i $DispDist $InteractDist $IntraComp $Immigrat &
     process_id=$!
 
 done

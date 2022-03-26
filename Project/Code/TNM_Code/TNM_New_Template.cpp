@@ -816,7 +816,7 @@ void createSvG(double (&SvG)[numSpec], mt19937& eng) {
 
 void createDisp(double (&disp)[numSpec]) {
     for (int i = 0; i < numSpec; i++) {
-        disp[i] = 1.5;
+        disp[i] = 0;
     }
 }
 

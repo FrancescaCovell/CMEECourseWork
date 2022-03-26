@@ -1,0 +1,17 @@
+Parameters:
+Dispersal = 1
+Intraction = 1
+IntraSpecific =0
+Immigration =0.0005
+
+Time take 12.3 hours
+
+Call:
+lm(formula = Mean_Rich ~ Patch, data = FullRichData)
+Multiple R-squared:  0.08946,	Adjusted R-squared:  0.08565 
+F-statistic: 23.47 on 10 and 2389 DF,  p-value: < 2.2e-16
+
+Call:
+lm(formula = Mean_Rich ~ LandGen, data = FullRichData)
+Multiple R-squared:  0.0006754,	Adjusted R-squared:  -0.0001584 
+F-statistic: 0.8101 on 2 and 2397 DF,  p-value: 0.445

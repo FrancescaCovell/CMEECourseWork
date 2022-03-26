@@ -1,0 +1,27 @@
+
+Parameters 1:
+Dispersal = 1
+Intraction = 1
+IntraSpecific =0
+Immigration =0.0005
+
+File size 77.6 MB
+Seed_1 files size 15.5 MB
+Multiple R-squared:  0.1331,	Adjusted R-squared:  0.1232 
+F-statistic: 13.35 on 10 and 869 DF,  p-value: < 2.2e-16
+
+Parameters 2:
+Dispersal = 1
+Interaction = 1.5
+IntraSpecific =0
+Immigration =0.0005
+
+File size  77.6 MB
+Seed_1 file size 15.5 MB
+Time taken 3.5 hours
+
+lm(formula = mean_Rich ~ patch, data = AmaSppRchData)
+Multiple R-squared:  0.1184,	Adjusted R-squared:  0.1083 
+F-statistic: 11.67 on 10 and 869 DF,  p-value: < 2.2e-16
+
+

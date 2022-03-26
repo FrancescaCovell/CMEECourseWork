@@ -1,6 +1,0 @@
-Parameters:
-Dispersal = 1
-Intraction = 1
-IntraSpecific =0
-Immigration =0.0005
-
